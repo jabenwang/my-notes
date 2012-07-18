@@ -1,8 +1,10 @@
 #!/bin/bash
 #syncwiki.sh
 cd ~/Notes
+new_file=$1
+comits=$2
 git pull origin master
-git add *
-git commit -m "new"
+git add $new_file
+git commit -m "$2"
 git push origin master
 
