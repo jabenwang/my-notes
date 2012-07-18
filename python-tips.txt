@@ -1,0 +1,227 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-07-18T15:42:47.853026
+
+====== Python入门语法总结 ======
+
+Created 星期三 18 七月 2012
+
+1.python是一个解释性语言：  
+ 一个用编译性语言比如C或C++写的程序可以从源文件（即C或C++语言）转换到一个你的计算机使用的语言（二进制代码，即0和1）。这个过程通过编译器和不同的标记、选项完成。当你运行你的程序的时候，连接/转载器软件把你的程序从硬盘复制到内存中并且运行。  
+ 而 Python语言写的程序不需要编译成二进制代码。你可以直接从源代码 运行 程序。在计算机内部，Python解释器把源代码转换成称为字节码的中间形式，然后再把它翻译成计算机使用的机器语言并运行。事实上，由于你不再需要担心如何编译程序，如何确保连接转载正确的库等等，所有这一切使得使用 Python更加简单。由于你只需要把你的Python程序拷贝到另外一台计算机上，它就可以工作了，这也使得你的Python程序更加易于移植。  
+   
+ 2.查询机器是否安装python成功：python -V  
+   
+ 3.得到类的帮助文档：  
+ help('str')#得到str类的文档  
+ help（list）#得到list类的文档字符串  
+   
+ 4.python中有4中类型的数：整数、长整数、浮点数和复数。   #(-5+4j)和(2.3-4.6j)是复数的例子。  
+   
+ 5.自然字符串通过在字符串全面添加前缀r或者R来指定。一定要用自然字符串处理正则表达式  
+ 例如：r"Newlines are indicated by /n"。  
+   
+ 6.字符串自动级连，例如，'What/'s' 'your name?'会被自动转为"What's your name?"。  
+   
+ 7.在多个物理行写一个逻辑行的例子：  
+ s = 'This is a string. /  
+ This continues the string.'  
+ print s   
+ 它的输出：This is a string. This continues the string.   
+   
+ 8.有一个特殊的运算符号：//  表示取整除。例如：4 // 3.0得到1.0   
+ lambda运算符！！  
+   
+ 9.python自动为字符串中间添加一个空格：  
+ print 'Area is', area  
+   
+ 10.得到用户在屏幕的输入：raw_input('Enter an integer : ')  
+ 例如：guess = int(raw_input('Enter an integer : '))  将输入的数据转换为int  
+   
+ 11.在python中没有switch语句！使用  
+              if  True：   
+              elif 条件二：     
+              else：  
+ 注意最后没有end if！！  
+   
+ 12.while 条件：  
+        语句  
+    else：  
+         语句  
+      在while可以使用else从句，有点多余。  
+   
+     13.for语句：  
+      for i in range(1, 5):  
+         print i  
+      else:      #也有else语句，有点多余。  
+         print 'The for loop is over'   
+   
+     14.得到字符串的长度：len（str）  
+   
+     15.在循环中可以使用continue语句。。  
+   
+     16.在函数中定义全局变量：使用global关键字。  
+       def func():  
+         global x  #全局的x变量。同一个global语句指定多个全局变量。例如global x, y, z  
+     参数中可以有默认的值，但是在形参末尾的那些参数才可以有默认参数：def func(a, b=5)是有效的，但是def func(a=5, b)是 无效 的。   
+     函数的参数调用可以使用关键参数，使用名字来给函数指定实参。  
+   
+     17.文档字符串的管理：它的首行以大写字母开始，句号结尾。第二行是空行，从第三行开始是详细的描述  
+    例如：  
+     '''''Prints the maximum of two numbers. 
+  
+        The two values must be integers.'''  
+     查看文档字符串的方法：print printMax.__doc__ #调用文档字符串的属性！！注意双下划线！或者help（printMax）  
+   
+    18.使用python的标准库：import  sys  
+      可以通过help（sys）查看模块的内容！  
+      常用：sys.argv包含了 命令行参数   
+   
+    19..pyc文件：字节编译的文件  与平台无关，与python变换程序的中间态有关。  
+   
+    20.from .. import语句：可以from sys import argv  #这样就只引入一个sys.argv这个变量。  
+   
+    21.小技巧：使用模块的__name__：  
+       if __name__ == '__main__':  做一些事情。。。。  
+   
+    22.dir（）：可以列出模块里面的定义的标识符。包括函数，类，变量等。  
+       提供一个模块名的时候，它返回模块定义的名称列表。如果不提供参数，它返回当前模块中定义的名称列表。  
+   
+    23.del 变量  #删除变量  
+   
+    24.python中有三种内建的数据结构：列表（list），元组，字典  
+   
+    25.元组：元组通过圆括号中用逗号分割的项目定义。元组通常用在使语句或用户定义的函数能够安全地采用一组值的时候，即被使用的元组的值不会改变。  
+    元组也是一个“序列”！（列表，字符串，元组都是序列！！字典不是。。）  
+    一个空的元组由一对空的圆括号组成，如myempty = ()  
+    只有一个成员的元组，必须在一个元素后面再加一个逗号，这样就“Python才能区分元组和表达式中一个带圆括号的对象”  
+   元组使用的示例：  
+   age = 22  
+   name = 'Swaroop'  
+   print '%s is %d years old' % (name, age)  
+   print ‘name is %s’%name    #注意这里只有一个变量的时候，可以这样使用，不用括号。     
+   
+    26.在python中使用汉字：在最上面写，#coding=gbk   
+     
+    27.序列：主要两个特点是索引，切片。序列的索引是负数的话，表示取倒数第几个元素。  
+       shoplist[1:3]:从位置1开始，包括位置2，但是停止在位置3的一个序列切片。只有两个元素。  
+   
+    28.关于对象的引用的老问题，创建一个对象并给它赋一个变量的时候，这个变量仅仅“参考”那个对象，而不是对象本身！如果要拷贝序列的话，就应该使用切片操作来进行序列的拷贝。  
+   
+    29.输出python中的全部汉字：  
+ for ch in xrange(0x4e00, 0x9fa6):  
+   print unichr(ch)  
+   
+    30.str类是字符串的类。help(str)  
+    常用方法：len(str),str.endswith('q'),S.find(sub [,start [,end]]),S.index(sub [,start [,end]]),S.isdigit()#是否数字  
+   
+    31.对于时间的格式化函数：import time  然后就：time.strftime('%Y%m%d%H%M%S')     可以从python参考手册得到。  
+   
+    32.执行一个命令，import os  然后： os.system(“命令字符串”)   如果命令执行成功返回0，否则返回错误号！注意执行成功的时候返回0！！  
+        判断目录是不是存在，os.path.exists(目录名)   创建目录：os.mkdir(新目录名)    得到文件分割符：os.sep  
+   
+    33.面向对象基本概念：  
+       类创建一个新类型，对象是这个类的实例；  
+       属于一个对象或者类的变量被称为域；  
+       属于类的函数称为类的方法；  
+       域有两种类型，属于每个实例/类的对象或者属于类本身，分别被称为实例变量和类变量；  
+       类使用关键字class创建。  
+     
+    34.self：在类的方法中，必须有一个额外的第一个参数，在调用这个方法的时候不为这个参数赋值，有Python自动进行赋值，类似于java的this。这个变量一般建议命名使用self。  
+       注意：这也意味着如果你有一个不需要参数的方法，你还是得给这个方法定义一个self参数。  
+   
+    35.空白语句：pass  
+   
+    36.类的定义：  
+    class Person:  
+    def sayHi(self):  
+         print 'Hello, how are you?'  
+    p = Person()  
+    p.sayHi()  
+   
+    37.类里面的初始化函数：__init__(self,参数。。。)  
+       对应的还有一个__del__方法！  
+      
+    38.类的变量（由一个类的所有对象（实例）共享使用），对象的变量（由类的每个对象/实例拥有）。  
+   
+    39.类的继承：class Student(SchoolMember):#括号里面是基类。python支持多重继承！  
+   
+    40.类的存储：使用cPickle模块进行类对象到文件的存储和从文件的加载一个对象。  
+     简单示例：import cPickle  
+                        存储：f= file(文件名,'w');      o=对象;          cPickle.dump(对象,f)  
+                        取存储：f=file(文件名);         o=cPickle.load(f) ;         使用对象。。。。  
+   
+     41.关于异常:  
+ try:  
+     s=raw_input('请输入一些东西：')  
+     if len(s)<3:  
+         raise ShortInputException(len(s),3)                        #触发自定义异常  
+ except EOFError:  
+     print '/n为什么要强制结束？'  
+ except ShortInputException,x:  
+     print '遇到ShortInputException异常，输入的长度是%d,/  
+ 不触发至少要输入位数是%d'%(x.length,x.atleast)  
+ else:  
+     print '没有异常被捕获。'  
+ finally:  
+     print '无论是否异常都要执行这个语句！'  
+ 自定义异常:  
+ class ShortInputException(Exception):  
+     def __init__(self,length,atleast):  
+         Exception.__init__(self)  
+         self.length=length  
+         self.atleast=atleast  
+   
+     42.使代码停留一会再执行  time.sleep(2)  #要先import time  
+   
+     43.查看变量的类型：  
+     from types import *  
+    再调用type(item)        #返回的值是NoneType ，TypeType ，BooleanType ，IntType等等。详细见python自带的文档。  
+    注意：布尔类型是True，False！首字母大写！！  
+    也有一个方法 if isinstance(item, int):看这个变量item是不是int类型  
+   
+     44.sys模块：  
+       option = sys.argv[1][2:]#比较特别的写法！！ fetch sys.argv[1] but without the first two characters  
+   
+     45. python中的一些特殊的方法  
+         名称 说明   
+ __init__(self,...) 这个方法在新建对象恰好要被返回使用之前被调用。   
+ __del__(self) 恰好在对象要被删除之前调用。   
+ __str__(self) 在我们对对象使用print语句或是使用str()的时候调用。   
+ __lt__(self,other) 当使用 小于 运算符（<）的时候调用。类似地，对于所有的运算符（+，>等等）都有特殊的方法。   
+ __getitem__(self,key) 使用x[key]索引操作符的时候调用。   
+ __len__(self) 对序列对象使用内建的len()函数的时候调用。   
+   
+     46.列表综合：将一个列表映射为例外一个列表的快速方法：  
+    listone = [2, 3, 4]  
+    listtwo = [2*i for i in listone if i > 2]      #新的列表中将原列表大于2的元素乘以2倍  
+    print listtwo   #[6, 8]   
+   
+    47.函数参数使用*和**分别代表为列表或者元组。这个比较有用。  
+ def powersum(power, *args):  
+ ...     '''''Return the sum of each argument raised to specified power.'''  
+ ...     total = 0  
+ ...     for i in args:  
+ ...          total += pow(i, power)  
+ ...     return total  
+ 实例： powersum(2, 3, 4)  
+              输出：25  
+   
+    48.lamdba语句：（用来创建函数的语句！！）很有特色的python语句！  
+ def make_repeater(n):  
+     return lambda s: s*n  
+ twice = make_repeater(2)  
+ print twice('string')  
+ print twice(2)  
+   
+ threeTimes = make_repeat(3)  
+ print threeTimes('string')  
+ print threeTimes(2)  
+   
+     49.动态执行python语句：exec 'print "Hello World"'      注意，这里没有括号！！  
+         eval用来计算存储在python中的表达式！  eval('3*3')     这也是可以的： print eval('"str1"+"str2"')  
+      
+     50.断言：assert语句，用来声明某个条件是真的。如果失败，就引发AssertionError。  
+   
+     51.repr函数：用来取得对象的规范化字符串表示，反引号也可以完成相同的功能。  
+         大多数有：eval(repr(object))==object
